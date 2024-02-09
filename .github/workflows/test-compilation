@@ -1,0 +1,43 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: MLPerf inference bert
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - '.github/workflows/test-compilation.yml'
+      - 'tools/**'
+      - 'lib/**'
+      - 'cmake/**'
+      - 'toolchain/**'
+      - 'scripts/**'
+      - 'runtime/**'
+      - 'thirdparty-modules/**'
+      - '!**.md'
+      - '!**.txt'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        llvm-version: [ "12.0.0", "13.0.0", "14.0.0", "15.0.0", "16.0.0" ]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python3 -m pip install cmind
+        cm pull repo ctuning@mlcommons-ck
+        cm run script --quiet --tags=get,sys-utils-cm
+    - name: Test Software Kit for LLVM compilation
+      run: |
+        cm run script --tags=get,qaic,software,kit --adr.compiler.tags=llvm --adr.compiler.version=${{ llvm-version }}
