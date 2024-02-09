@@ -17,6 +17,19 @@ on:
       - 'thirdparty-modules/**'
       - '!**.md'
       - '!**.txt'
+  push:
+    branches: [ "main" ]
+    paths:
+      - '.github/workflows/test-compilation.yml'
+      - 'tools/**'
+      - 'lib/**'
+      - 'cmake/**'
+      - 'toolchain/**'
+      - 'scripts/**'
+      - 'runtime/**'
+      - 'thirdparty-modules/**'
+      - '!**.md'
+      - '!**.txt'
 
 jobs:
   build:
