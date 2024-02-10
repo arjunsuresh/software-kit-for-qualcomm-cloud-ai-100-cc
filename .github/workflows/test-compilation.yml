@@ -46,7 +46,7 @@ jobs:
       run: |
         python3 -m pip install cmind
         cm pull repo ctuning@mlcommons-ck
-        cm run script --quiet --tags=get,sys-utils-cm
+        cm run script --tags=get,sys-utils-cm --quiet
   
     - name: Test Software Kit for LLVM compilation
       run: |
