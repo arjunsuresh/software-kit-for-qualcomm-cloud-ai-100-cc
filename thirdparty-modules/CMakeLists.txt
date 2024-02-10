@@ -34,7 +34,7 @@ ${protobuf_SOURCE_DIR}/src)
 #Get flatbuffers Module
 FetchContent_Declare(flatbuffers
   GIT_REPOSITORY https://github.com/google/flatbuffers
-  GIT_TAG        v2.0.8
+  GIT_TAG        v23.5.26
 )
 FetchContent_MakeAvailable(flatbuffers)
 
@@ -53,6 +53,6 @@ target_include_directories(module-flatbuffers PUBLIC
 set(BUILD_GMOCK OFF CACHE INTERNAL "")
 FetchContent_Declare(googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.10.0
+  GIT_TAG        v1.14.0
 )
 FetchContent_MakeAvailable(googletest)
