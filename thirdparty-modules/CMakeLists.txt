@@ -34,7 +34,7 @@ ${protobuf_SOURCE_DIR}/src)
 #Get flatbuffers Module
 FetchContent_Declare(flatbuffers
   GIT_REPOSITORY https://github.com/google/flatbuffers
-  GIT_TAG        v23.5.26
+  GIT_TAG        v2.0.8
 )
 FetchContent_MakeAvailable(flatbuffers)
 
