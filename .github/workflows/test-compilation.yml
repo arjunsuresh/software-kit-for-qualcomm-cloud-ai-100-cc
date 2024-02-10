@@ -26,7 +26,6 @@ on:
       - 'runtime/**'
       - 'thirdparty-modules/**'
       - '!**.md'
-      - '!**.txt'
 
 
 jobs:
