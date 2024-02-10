@@ -26,7 +26,6 @@ on:
       - 'thirdparty-modules/**'
       - '!**.md'
 
-
 jobs:
   build:
     runs-on: ubuntu-20.04
